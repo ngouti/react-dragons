@@ -26,13 +26,15 @@ class App extends Component {
   }
 
   patch = (data) => {
-    console.log(data)
-    fetch('http://localhost:3000/dragons', {
+    // console.log(data)
+    fetch(`http://localhost:3000/dragons/${data.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state.dragons)
+      body: JSON.stringify({
+        atWar: !data.atWar
+      })
     })
   }
 
